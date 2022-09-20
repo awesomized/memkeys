@@ -57,7 +57,7 @@ You will need libpcap-devel, libpcrecpp, and libncurses-devel.
 
 On Ubuntu with all packages:
 
-    sudo apt-get install autoconf libpcap-dev libpcre3-dev and lib32ncurses5-dev google-perftools libgoogle-perftools-dev
+    sudo apt-get install autoconf libpcap-dev libpcre3-dev and lib32ncurses5-dev google-perftools libgoogle-perftools-dev libtool
     ./build-eng/autogen.sh
     make
     make check
