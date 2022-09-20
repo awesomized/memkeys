@@ -12,7 +12,7 @@ PcapLive::PcapLive(const Config * cfg)
       // in constructor
       device(Device::getDevice(cfg->getInterface()))
 {
-  logger->debug(CONTEXT, "Using device %s for capture", getInterfaceC());
+  logger->debug(CONTEXT, "Using device %s for capture", getInterface().c_str());
 }
 PcapLive::~PcapLive()
 {
@@ -34,9 +34,9 @@ void PcapLive::open()
   if (!state.checkAndSet(state_NEW, state_STARTING)) {
     logger->warning(CONTEXT, "Device already open");
   }
-  const char *dev = getInterfaceC();
-  logger->info(CONTEXT, "Opening device %s for capture", dev);
-  handle = pcap_open_live(dev,                      /* device to capture on */
+  const string dev = getInterface();
+  logger->info(CONTEXT, "Opening device %s for capture", dev.c_str());
+  handle = pcap_open_live(dev.c_str(),                      /* device to capture on */
                           config->getSnapLength(),  /* how many bytes per packet */
                           config->isPromiscuous(),  /* promiscuous */
                           config->getReadTimeout(), /* read timeout, in ms */

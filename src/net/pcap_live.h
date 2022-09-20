@@ -16,7 +16,6 @@ class PcapLive : public Pcap
   Device getDevice() const
   { return device; }
 
-  const char * getInterfaceC() { return getDevice().getDeviceName().c_str(); }
   std::string getInterface() const
   { return getDevice().getDeviceName(); }
 
