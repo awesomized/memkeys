@@ -42,7 +42,7 @@ void PcapLive::open()
                           config->getReadTimeout(), /* read timeout, in ms */
                           errorBuffer);
   if (handle == NULL) {
-    string msg = "Could not open device " + getInterface() + " for reading: " + errorBuffer;
+    string msg = "Could not open device " + dev + " for reading: " + errorBuffer;
     logger->error(CONTEXT, msg.c_str());
     state.setState(state_NEW);
     throw MemkeysException(msg);
